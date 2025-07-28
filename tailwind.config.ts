@@ -18,6 +18,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'sans': ['Inter', 'system-ui', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -51,6 +54,18 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
+				},
+				// CS-star Chatbot Theme Colors
+				chatbot: {
+					bg: 'hsl(var(--chatbot-bg))',
+					surface: 'hsl(var(--chatbot-surface))',
+					text: 'hsl(var(--chatbot-text))',
+					'text-muted': 'hsl(var(--chatbot-text-muted))',
+					accent: 'hsl(var(--chatbot-accent))',
+					'user-bubble': 'hsl(var(--chatbot-user-bubble))',
+					'bot-bubble': 'hsl(var(--chatbot-bot-bubble))',
+					border: 'hsl(var(--chatbot-border))',
+					hover: 'hsl(var(--chatbot-hover))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
