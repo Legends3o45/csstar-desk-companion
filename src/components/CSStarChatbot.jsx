@@ -15,19 +15,8 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-interface Message {
-  id: string;
-  text: string;
-  isUser: boolean;
-  timestamp: Date;
-}
-
-interface CSStarChatbotProps {
-  className?: string;
-}
-
-export function CSStarChatbot({ className }: CSStarChatbotProps) {
-  const [messages, setMessages] = useState<Message[]>([
+export function CSStarChatbot({ className }) {
+  const [messages, setMessages] = useState([
     {
       id: '1',
       text: "Hello! I'm CS-star, your Computer Science department assistant. How can I help you today?",
@@ -37,7 +26,7 @@ export function CSStarChatbot({ className }: CSStarChatbotProps) {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef(null);
 
   const navigationItems = [
     { icon: Calendar, label: 'Timetable', key: 'timetable' },
@@ -49,7 +38,7 @@ export function CSStarChatbot({ className }: CSStarChatbotProps) {
   const sendMessage = () => {
     if (!inputValue.trim()) return;
 
-    const userMessage: Message = {
+    const userMessage = {
       id: Date.now().toString(),
       text: inputValue,
       isUser: true,
@@ -61,7 +50,7 @@ export function CSStarChatbot({ className }: CSStarChatbotProps) {
 
     // Simulate bot response
     setTimeout(() => {
-      const botMessage: Message = {
+      const botMessage = {
         id: (Date.now() + 1).toString(),
         text: "Thanks for your question! I'm here to help with department information, schedules, staff details, and more. What specific information are you looking for?",
         isUser: false,
@@ -71,7 +60,7 @@ export function CSStarChatbot({ className }: CSStarChatbotProps) {
     }, 1000);
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyPress = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
